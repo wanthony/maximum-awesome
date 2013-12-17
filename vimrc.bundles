@@ -39,3 +39,13 @@ Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/kwbdi.vim'
 Bundle 'vim-scripts/matchit.zip'
+Bundle 'molokai'
+Bundle 'Railscasts-Theme-GUIand256color'
+Bundle 'twilight'
+Bundle 'Mustang2'
+Bundle "tpope/vim-rbenv.git"
+Bundle "Lokaltog/vim-easymotion.git"
+Bundle 'junegunn/seoul256.vim'
+Bundle 'bilalq/lite-dfm'
+Bundle 'bruno-/vim-vertical-move'
+Bundle 'jellybeans.vim'
