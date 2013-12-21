@@ -10,7 +10,7 @@ inoremap jj <ESC>
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
+    colorscheme jellybeans
   else
     colorscheme desert
   endif
@@ -31,3 +31,32 @@ function! s:RemoveConflictingAlignMaps()
 endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+autocmd BufWritePre *.* :call whitespace#strip_trailing()
+
+nmap <silent> <leader>K <Plug>DashSearch
+
+autocmd BufRead,BufNewFile *.rb :DashKeywords ruby rails
+
+" Fugitive - Use our github enterprise
+let g:fugitive_github_domains = ['http://github.bos.dataxu.net']
+
+" Fugitive - Delete temp buffers after we're done with them
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" Fugitive - Add git branch to status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+map w <Plug>CamelCaseMotion_w
+map b <Plug>CamelCaseMotion_b
+map e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+omap iw <Plug>CamelCaseMotion_iw
+xmap iw <Plug>CamelCaseMotion_iw
+omap ib <Plug>CamelCaseMotion_ib
+xmap ib <Plug>CamelCaseMotion_ib
+omap ie <Plug>CamelCaseMotion_ie
+xmap ie <Plug>CamelCaseMotion_ie
