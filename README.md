@@ -1,3 +1,12 @@
+# Anthony's Intro!
+
+This is my PERSONAL fork of Square's `maximum-awesome` set of config files.
+
+I am doing things my own way with my own packages, using `maximum-awesome` as a great base
+to get started.  There's no guarantee that anything will work as designed by Square.
+
+However, feel free to fork and modify this however you'd like!
+
 # Maximum Awesome
 
 Config files for vim and tmux, lovingly tended by a small subculture of
