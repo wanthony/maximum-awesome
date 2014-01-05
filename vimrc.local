@@ -4,15 +4,64 @@ set nocursorline " don't highlight current line
 inoremap jj <ESC>
 
 " highlight search
-"set hlsearch
-"nmap <leader>hl :let @/ = ""<CR>
+set hlsearch
+nmap <leader>hl :let @/ = ""<CR>
+
+set guifont=Droid_Sans_Mono_for_Powerline:h11
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ],
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyLightlineFugitive',
+      \   'readonly': 'MyLightlineReadonly',
+      \   'modified': 'MyLightlineModified',
+      \   'filename': 'MyLightlineFilename',
+      \ },
+      \ }
+
+function! MyLightlineFugitive()
+  return exists("*fugitive#head") ? fugitive#head() : ''
+endfunction
+
+function! MyLightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! MyLightlineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "RO"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyLightlineFilename()
+  return ('' != MyLightlineReadonly() ? MyLightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != MyLightlineModified() ? ' ' . MyLightlineModified() : '')
+endfunction
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
     colorscheme jellybeans
   else
-    colorscheme desert
+    colorscheme jellybeans
   endif
 endif
 
@@ -48,3 +97,13 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 nnoremap <Leader>G :GundoToggle<CR>
+
+" Snipmate Author (ME!)
+let g:snips_author = 'Anthony White'
+
+let g:sneak#streak = 1
+
+nnoremap f :Sneak! 1<cr>
+nnoremap F :SneakBackward! 1<cr>
+xnoremap f :<c-u>SneakV! 1<cr>
+xnoremap F :<c-u>SneakVBackward! 1<cr>
