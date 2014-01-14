@@ -83,10 +83,6 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 autocmd BufWritePre *.* :call whitespace#strip_trailing()
 
-nmap <silent> <leader>K <Plug>DashSearch
-
-autocmd BufRead,BufNewFile *.rb :DashKeywords ruby rails
-
 " Fugitive - Use our github enterprise
 let g:fugitive_github_domains = ['http://github.bos.dataxu.net']
 
@@ -107,3 +103,11 @@ nnoremap f :Sneak! 1<cr>
 nnoremap F :SneakBackward! 1<cr>
 xnoremap f :<c-u>SneakV! 1<cr>
 xnoremap F :<c-u>SneakVBackward! 1<cr>
+
+nnoremap <Leader>z :Goyo<CR>
+
+" ng-attribute style attributes are valid (ignore their errors)
+let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+
+nnoremap Q @q
