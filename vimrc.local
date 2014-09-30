@@ -1,3 +1,67 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'austintaylor/vim-indentobject'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'juvenn/mustache.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'msanders/snipmate.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nono/vim-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+" Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-pastie'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vividchalk'
+Plug 'eventualbuddha/vim-protobuf'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/greplace.vim'
+Plug 'vim-scripts/kwbdi.vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'molokai'
+Plug 'Railscasts-Theme-GUIand256color'
+Plug 'twilight'
+Plug 'Mustang2'
+Plug 'tpope/vim-rbenv'
+Plug 'junegunn/seoul256.vim'
+Plug 'bruno-/vim-vertical-move'
+Plug 'jellybeans.vim'
+Plug 'Keithbsmiley/investigate.vim'
+Plug 'vimux'
+Plug 'danro/rename.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'mattn/emmet-vim'
+Plug 'jnurmine/Zenburn'
+Plug 'Gundo'
+Plug 'itchyny/lightline.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'DeepInside/BracketHighlighter.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'css_color.vim'
+Plug '29decibel/vim-stringify'
+Plug 'tpope/vim-haml'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mhinz/vim-startify'
+
+call plug#end()
 set nocursorline " don't highlight current line
 
 " keyboard shortcuts
@@ -83,9 +147,6 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 autocmd BufWritePre *.* :call whitespace#strip_trailing()
 
-" Fugitive - Use our github enterprise
-let g:fugitive_github_domains = ['http://github.bos.dataxu.net']
-
 " Fugitive - Delete temp buffers after we're done with them
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -111,3 +172,13 @@ let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
 let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
 
 nnoremap Q @q
+
+" Startify Config
+let g:startify_custom_header =
+  \ map(split(system('fortune | cowsay'), '\n'), '"  ". v:val') + ['','']
+
+" MY CUSTOM KEYBINDS
+map <leader>rc :e! $MYVIMRC.local<CR>
+map <leader>rC :so $MYVIMRC.local<CR>
+
+
